@@ -14,9 +14,9 @@ This program has been tested on Remarkable 1 OS version 2.14.3.977 with Remux as
 
 2. Download and copy the whole repo to your remarkable `/home/root/apps` (you can ignore the `process` folder as they are scripts for generating the dictionaries).
 
-3. Register `example.py` as application by using `chmod +x`. Refer to the guide of the launcher you are using.
+3. Register `example.py` as application by using `chmod +x`. Refer to the guide of the launcher you are using for more.
 
-4. Install a UTF-8 font at `/usr/share/fonts/ttf/chnfont.otf` to support Asian languages.
+4. Install a font(like noto) at `/usr/share/fonts/ttf/chnfont.otf` to support Asian languages.
 
 5. Run the program and search!
 
