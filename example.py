@@ -38,9 +38,9 @@ def wrap(s):
     res.append(ns+"==")
     return res
 # loadDict("testdict.json","TestDict")
-loadDict("idiom.json","成语词典")
+# loadDict("idiom.json","成语词典")
 loadDict('jp.json',"日本語辞書")
-loadDict("cn.json","汉语词典MDBG")
+# loadDict("cn.json","汉语词典MDBG")
 
 searchbox = Widget(id="sbox", typ="textinput", value="S", x="10%", y="10%",width=100,height=100)
 lbl = Widget(id="lbl",typ="label",value="'!'全匹配。'?'反向。==",x="50%",y="10%")
@@ -62,6 +62,23 @@ while True:
 
     lbl.value="No result..."
     kw=res['sbox '].lower()
+
+    if len(kw)>0 and kw[0]=='@':
+        if kw[1]=='i':
+            dicts.clear()
+            loadDict("idiom.json","成语词典")
+            lbl.value="Switched to Idiom!"
+        elif kw[1]=='j':
+            dicts.clear()
+            loadDict('jp.json',"日本語辞書")
+            lbl.value="Switched to JP!"
+        elif kw[1]=='c':
+            dicts.clear()
+            loadDict("cn.json","汉语词典MDBG")
+            lbl.value="Switched to CN!"
+        else:
+            lbl.value="I=Idiom.J=Japan.C=Chinese"
+        continue
 
     pq=[]
     
@@ -89,7 +106,7 @@ while True:
             
             if check:
                 towrap=f"【{j['word']}】（{j['pron']}）{j['ex']}--{i}"
-                pq.append((len(j['romaji']),towrap))
+                pq.append((min(map(len,j['romaji'].split(";"))),towrap))
                 pq.sort()
                 if len(pq)>10:
                     pq.pop()

@@ -20,9 +20,13 @@ This program has been tested on Remarkable 1 OS version 2.14.3.977 with Remux as
 
 5. Run the program and search!
 
-# Dictionaries
+# Credits
 I do not own any of the dictionaries. So here are their sources:
 
 - Chinese Idiom: [xinhua](https://github.com/pwxcoo/chinese-xinhua)
 - Chinese Words: [MDBG](https://www.mdbg.net/chinese/dictionary)
 - Japanese Words: [JMDict](http://www.edrdg.org/wiki/index.php/Main_Page)
+
+Libraries used:
+- [Carta](https://github.com/Jayy001/Carta)
+- [Romkan](https://github.com/soimort/python-romkan)

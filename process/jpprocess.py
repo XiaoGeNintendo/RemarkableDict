@@ -574,8 +574,11 @@ import json
 out=[]
 
 def parse_edict(s):
-    if '[' not in s:
-        return False
+
+    noPro=False
+    if ']' not in s:
+        noPro=True
+    
     dx=dict()
     
     tmp=""
@@ -588,10 +591,21 @@ def parse_edict(s):
             dx['romaji']=to_roma(dx['pron'])
             tmp=""
         elif i=="/":
+            if noPro:
+                dx['word']=tmp.strip()
+                tmp=""
+                noPro=False
             tmp+="★"
         else:
             tmp+=i
+
     dx['ex']=tmp
+    if 'pron' not in dx:
+        dx['pron']=dx['word']
+        dx['romaji']=to_roma(dx['word'])
+        # print(dx['word'],dx['romaji'])
+        # print(dx)
+        # input()
     return dx
 with open("edict2.txt",mode="r",encoding="utf-8") as f:
     ls=[]
