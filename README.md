@@ -26,7 +26,7 @@ I do not own any of the dictionaries. So here are their sources:
 - Chinese Idiom: [xinhua](https://github.com/pwxcoo/chinese-xinhua)
 - Chinese Words: [MDBG](https://www.mdbg.net/chinese/dictionary)
 - Japanese Words: [JMDict](http://www.edrdg.org/wiki/index.php/Main_Page)
-
+- English Words: [ECDict](https://github.com/skywind3000/ECDICT) *Note: Due to Remarkable's tiny memory limit(<400mb), phrases and some words are removed from the dictionary*
 Libraries used:
 - [Carta](https://github.com/Jayy001/Carta)
 - [Romkan](https://github.com/soimort/python-romkan)

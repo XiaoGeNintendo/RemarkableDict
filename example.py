@@ -38,8 +38,8 @@ def wrap(s):
     res.append(ns+"==")
     return res
 # loadDict("testdict.json","TestDict")
-# loadDict("idiom.json","成语词典")
-loadDict('jp.json',"日本語辞書")
+loadDict("idiom.json","成语词典")
+# loadDict('jp.json',"日本語辞書")
 # loadDict("cn.json","汉语词典MDBG")
 
 searchbox = Widget(id="sbox", typ="textinput", value="S", x="10%", y="10%",width=100,height=100)
@@ -76,8 +76,12 @@ while True:
             dicts.clear()
             loadDict("cn.json","汉语词典MDBG")
             lbl.value="Switched to CN!"
+        elif kw[1]=='e':
+            dicts.clear()
+            loadDict("en.json","英语ECDict")
+            lbl.value="Switched to EN!"
         else:
-            lbl.value="I=Idiom.J=Japan.C=Chinese"
+            lbl.value="I=Idiom.J=Japanese.C=Chinese.E=English"
         continue
 
     pq=[]
@@ -88,6 +92,9 @@ while True:
             # print(j)
             check=False
 
+            if 'romaji' not in j:
+                j['romaji']=j['word']
+            
             if len(kw)>0 and kw[0]=='!':
                 if j['romaji'].lower() == kw[1:]:
                     check=True

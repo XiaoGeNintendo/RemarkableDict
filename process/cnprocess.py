@@ -591,7 +591,7 @@ def parse_edict(s):
             dx['word']=tmp.strip().split(" ")[1]
             tmp=""
         elif not dp and i=="]":
-            dx['pron']=tmp.strip()
+            dx['pron']=tmp.strip().replace("u:","v")
             dx['romaji']=fix(dx['pron'])
             tmp=""
             dp=True
